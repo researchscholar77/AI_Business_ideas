@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesha AI Video - Interactive Business Model</title>
+    <!-- Chosen Palette: Sacred Harmony -->
+    <!-- Application Structure Plan: The application is designed as a single-page, thematic dashboard to provide a comprehensive and intuitive overview of the business model. The structure prioritizes user understanding over mirroring the source report's linear format. It uses a sticky top navigation (`Overview`, `Audience & Market`, `Revenue Model`, `Operations`) for quick access to logically grouped sections. This thematic approach clusters related concepts like 'Customer Segments' with 'Channels' into an 'Audience & Market' section, making the relationships clearer. The user flow is designed for both linear scrolling and direct navigation, with interactive elements like charts and clickable details to encourage exploration and deeper engagement with the business plan's core components. -->
+    <!-- Visualization & Content Choices: 
+        - Revenue Streams -> Goal: Compare -> Donut Chart (Chart.js) -> Interaction: Click on legend to show/hide details -> Justification: Visually emphasizes the core revenue source versus future potential, making the strategy instantly clear. 
+        - Cost Structure -> Goal: Compare -> Horizontal Bar Chart (Chart.js) -> Interaction: Hover for tooltips -> Justification: Immediately communicates the relative scale of major expenses, highlighting the GPU cost dependency.
+        - Key Activities -> Goal: Organize -> Process Flow Diagram (HTML/Tailwind) -> Interaction: Static visual flow -> Justification: Clearly illustrates the operational sequence from model training to content expansion.
+        - Value Proposition & Others -> Goal: Inform -> Styled Cards with Icons (HTML/Tailwind) -> Interaction: Hover effects -> Justification: Breaks down complex text into digestible, visually distinct components for quick comprehension.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF8F3; /* Warm Neutral Background */
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #D97706; /* Saffron Accent */
+            border-bottom-color: #D97706;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold text-gray-800">Ganesha AI Video</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Overview</a>
+                    <a href="#market" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Audience & Market</a>
+                    <a href="#revenue" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Revenue Model</a>
+                    <a href="#operations" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Operations</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="overview" class="text-center mb-24 pt-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Interactive Business Model</h1>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-8">
+                Our core objective is to become the leading platform for generating culturally sensitive, personalized, short-form AI video content, starting with devotional and motivational content related to Lord Ganesha.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-10">Value Proposition</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-5xl mb-4 text-amber-600">✨</div>
+                    <h3 class="text-xl font-semibold mb-2">Creator Empowerment</h3>
+                    <p class="text-gray-600">Enables users to generate high-quality, personalized devotional videos on demand, without needing complex video editing skills.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-5xl mb-4 text-amber-600">🕉️</div>
+                    <h3 class="text-xl font-semibold mb-2">Cultural Relevance</h3>
+                    <p class="text-gray-600">Focuses exclusively on culturally resonant themes, ensuring accuracy, respect, and high visual fidelity suitable for sharing.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                     <div class="text-5xl mb-4 text-amber-600">🤝</div>
+                    <h3 class="text-xl font-semibold mb-2">Contextual Alignment</h3>
+                    <p class="text-gray-600">Provides a unique, brand-safe environment for advertisers to place culturally sensitive sponsorships.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="mb-24 pt-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Audience & Market</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">This section outlines who our customers are and the channels we use to reach them, forming the foundation of our market strategy.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Customer Segments</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-amber-700">Primary Users (Free Audience)</h4>
+                            <p class="text-gray-600">Devotees, hobbyists, and individuals who frequently share religious/inspirational content on social media and messaging apps.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-teal-700">Monetization Customers (Sponsors)</h4>
+                            <p class="text-gray-600">Brands targeting an audience interested in cultural, religious, or family-oriented products (e.g., jewelry, festivals, travel, financial services).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Channels</h3>
+                    <div class="flex flex-col items-center justify-center h-full space-y-4">
+                        <div class="flex items-center space-x-3 text-lg"><span class="text-2xl">📱</span><p>Mobile Application (iOS/Android)</p></div>
+                        <div class="flex items-center space-x-3 text-lg"><span class="text-2xl">💻</span><p>Web App (Basic Functionality)</p></div>
+                        <div class="flex items-center space-x-3 text-lg"><span class="text-2xl">🔗</span><p>Direct Social Sharing Integration</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="revenue" class="mb-24 pt-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Revenue Model</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">The primary model is ad-supported, focusing on non-intrusive contextual sponsorships with a future path to premium features. Click the legend items below to explore each revenue stream.</p>
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    <div id="revenue-details">
+                        <div class="detail-content" id="detail-sponsorships">
+                            <h3 class="text-2xl font-semibold mb-2 text-amber-700">Contextual Sponsorships (Core)</h3>
+                            <p class="text-gray-600">This is the primary revenue driver at launch. Brands are offered the opportunity to sponsor video themes, background music, or visual elements that appear contextually within the AI-generated video. For example, a morning blessing video could be subtly sponsored by a jewelry brand. This model respects the user experience while providing high value to advertisers.</p>
+                        </div>
+                        <div class="detail-content hidden" id="detail-premium">
+                            <h3 class="text-2xl font-semibold mb-2 text-teal-700">Premium Feature Tier (Future)</h3>
+                            <p class="text-gray-600">A future revenue stream will be a subscription model. This tier will cater to power users and small businesses, offering features like watermark removal, HD/4K export resolution, access to an exclusive library of high-fidelity Ganesha models and voiceovers, and the ability to generate longer videos (e.g., 60-second stories).</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="operations" class="pt-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Operations & Structure</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">Here we detail the core activities, resources, and relationships that power our platform and create a sustainable, scalable business.</p>
+            
+            <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+                <h3 class="text-2xl font-semibold text-center mb-6">Key Activities (Operational Flow)</h3>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="text-center">
+                        <p class="text-lg font-medium">1. AI Model Training</p>
+                        <p class="text-sm text-gray-500">Visuals & Accuracy</p>
+                    </div>
+                    <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                     <div class="text-2xl text-gray-300 md:hidden">↓</div>
+                    <div class="text-center">
+                        <p class="text-lg font-medium">2. Platform Reliability</p>
+                        <p class="text-sm text-gray-500">Scalable Pipeline</p>
+                    </div>
+                     <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                     <div class="text-2xl text-gray-300 md:hidden">↓</div>
+                    <div class="text-center">
+                        <p class="text-lg font-medium">3. Monetization Engine</p>
+                        <p class="text-sm text-gray-500">Contextual Ad System</p>
+                    </div>
+                     <div class="text-2xl text-gray-300 hidden md:block">→</div>
+                     <div class="text-2xl text-gray-300 md:hidden">↓</div>
+                    <div class="text-center">
+                        <p class="text-lg font-medium">4. Content Expansion</p>
+                        <p class="text-sm text-gray-500">New Themes & Languages</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold text-center mb-4">Key Resources & Cost Structure</h3>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-2">Key Resources:</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>**Intellectual Property:** Proprietary AI models</li>
+                            <li>**Technical Stack:** Scalable cloud computing (GPUs)</li>
+                            <li>**Talent:** AI Engineers, 3D Artists, Cultural Consultants</li>
+                        </ul>
+                    </div>
+                    <div>
+                         <h4 class="font-bold text-lg mb-2">Relative Operational Costs:</h4>
+                        <div class="chart-container h-64 max-h-64">
+                             <canvas id="costChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                     <h3 class="text-2xl font-semibold text-center mb-4">Customer Relationships</h3>
+                     <div class="flex flex-col items-center justify-center h-full space-y-6 text-center">
+                        <div>
+                            <p class="text-3xl mb-2">🤖</p>
+                            <h4 class="font-bold text-lg">Automated & Self-Service</h4>
+                            <p class="text-gray-600">Core video generation is fully automated for users.</p>
+                        </div>
+                         <div>
+                            <p class="text-3xl mb-2">🌍</p>
+                            <h4 class="font-bold text-lg">Community-Driven</h4>
+                            <p class="text-gray-600">Growth is powered by virality and social sharing.</p>
+                        </div>
+                         <div>
+                            <p class="text-3xl mb-2">💼</p>
+                            <h4 class="font-bold text-lg">Premium Support</h4>
+                            <p class="text-gray-600">Dedicated account management for large sponsors.</p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 mt-16">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>&copy; 2025 Ganesha AI Video. Interactive Business Model Visualization.</p>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Revenue Chart (Donut)
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const revenueData = {
+            labels: ['Contextual Sponsorships (Core)', 'Premium Feature Tier (Future)'],
+            datasets: [{
+                label: 'Revenue Focus',
+                data: [90, 10],
+                backgroundColor: ['#D97706', '#0D9488'],
+                borderColor: '#FDF8F3',
+                borderWidth: 4,
+                hoverOffset: 8
+            }]
+        };
+
+        const revenueChart = new Chart(revenueCtx, {
+            type: 'doughnut',
+            data: revenueData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: { size: 14 }
+                        },
+                        onClick: (e, legendItem, legend) => {
+                            const detailsDiv = document.getElementById('revenue-details');
+                            const allDetails = detailsDiv.querySelectorAll('.detail-content');
+                            const activeDetail = legendItem.index === 0 ? 
+                                document.getElementById('detail-sponsorships') : 
+                                document.getElementById('detail-premium');
+
+                            allDetails.forEach(d => {
+                                if (d !== activeDetail) {
+                                    d.classList.add('hidden');
+                                }
+                            });
+                            activeDetail.classList.remove('hidden');
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '% Focus';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Cost Chart (Horizontal Bar)
+        const costCtx = document.getElementById('costChart').getContext('2d');
+        const costChart = new Chart(costCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Cloud/GPU Usage', 'Staff Salaries', 'Marketing'],
+                datasets: [{
+                    label: 'Relative Cost',
+                    data: [100, 60, 20],
+                    backgroundColor: ['#DC2626', '#F59E0B', '#10B981'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { display: false }
+                    },
+                    y: {
+                         grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // Navigation scrollspy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('header nav a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+</body>
+</html>
